@@ -1,0 +1,21 @@
+{
+    "name": "larakit/sf-larakit-js",
+    "description": "[Larakit] [staticfiles] larakit.js - основной модуль, навешивающий функционал на элементы по селектору",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "larakit/lk-staticfiles": "*",
+        "larakit/sf-jquery": "*"
+    },
+    "authors": [
+        {
+            "name": "Alexey Berdnikov",
+            "email": "aberdnikov@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ]
+    }
+}
