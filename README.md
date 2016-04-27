@@ -1,29 +1,18 @@
-# README #
+#sf-larakit-js
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Навешиваем обработчик событие клика на все элементы с селектором ".js-click-alert"
 
-### What is this repository for? ###
+~~~js
+LarakitJs.initSelector('.js-click-alert', function () {
+    $(this).on('click', function () {
+        alert('Нажата кнопка!');
+    });
+});
+~~~
+И теперь система будет сама отслеживать появление в DOM элементов с таким селектором (как при первоначальной загружке, так и при обновлении дерева при помощи AJAX-запросов).
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Фактически это работает таким образом:
 
-### How do I get set up? ###
+1) есть кастомное событие "larakit.js", которое вызывается при $(document).ready()  и завершении AJAX-запроса.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+2) делается запрос для всех зарегистрированных через LarakitJs.initSelector() селекторов наличие класса с префиксом "js-init-...", т.е. для приведенного примера будет проверяться наличие класса "js-init-click-alert" и, если он не будет обнаружен, то сперва навешивается обработчик события, а затем класс "js-init-...", символизирующий флаг навешенности обработчика
