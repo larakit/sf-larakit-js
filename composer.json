@@ -4,7 +4,6 @@
     "license": "MIT",
     "version": "1.0.0",
     "require": {
-        "larakit/lk-staticfiles": "*",
         "larakit/sf-jquery": "*"
     },
     "authors": [
